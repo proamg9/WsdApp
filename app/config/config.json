@@ -1,0 +1,7 @@
+{
+	"clientID":"coding_test",
+	"clientSecret":"bwZm5XC6HTlr3fcdzRnD",
+	"authorizationURL":"https://staging-auth.wallstreetdocs.com/oauth/authorize",
+	"tokenURL":"https://staging-auth.wallstreetdocs.com/oauth/token",
+	"userinfo":"https://staging-auth.wallstreetdocs.com/oauth/userinfo"
+}

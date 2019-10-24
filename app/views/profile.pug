@@ -1,0 +1,48 @@
+extends layout
+
+block body
+	div.form
+		div.row
+			div.col-lg-3.col-md-3.col-sm-4.col-xs-12
+				div.row
+					div.col-lg-12
+						div.fileinput.fileinput-new(data-provides="fileinput")
+							div.fileinput-preview.thumbnail(data-trigger="fileinput",style="width:200px;height:150px")
+							div
+								span.btn.red.btn-outline.btn-file
+									span.btn.btn-primary.fileinput-new Select Image
+									span.fileinput-exists Change
+									input(type="file" name="file")
+								a.btn.red.fileinput-exists(href="javascript:;",data-dismiss="fileinput") Remove
+							span.btn.btn-primary.fileinput-exists.upload(style="margin-top:20px;width:100%;") Upload Image
+			div.col-lg-9.col-md-9.col-sm-8.col-xs-12
+				div.row.form-group
+					label.col-lg-3.field_name First Name
+					div.col-lg-3.field_value  !{user.first_name}
+					label.col-lg-3.field_name Last Name
+					div.col-lg-3.field_value !{user.last_name}
+				div.row.form-group
+					label.col-lg-3.field_name User Name
+					div.col-lg-3.field_value !{user.username}
+					label.col-lg-3.field_name Full Name
+					div.col-lg-3.field_value  !{user.name.family_name + " " + user.name.given_name}
+				div.row.form-group
+					label.col-lg-3.field_name Emails
+					div.col-lg-3.field_value !{user.emails[0].value}
+					label.col-lg-3.field_name Organization Name
+					div.col-lg-3.field_value !{user.organisation_name}
+				div.row
+					div.col-lg-12.col-md-12.col-sm-12.col-xs-12
+						p.lead Applications
+						table.table.table-condensed(style="margin-top:10px;")
+							thead
+								tr
+									th Application Name
+									th Client Id
+									th User Id
+							tbody
+								each val,index in user.applications
+									tr
+										td !{val.name}
+										td !{val.client_id}
+										td !{val.user_id}
